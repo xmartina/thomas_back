@@ -19,12 +19,12 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                         // Check if 'invalid_credentials' is set in the $_GET array
                         if(isset($_GET['error']) && $_GET['error'] === 'invalid_credentials') { ?>
                                 <style>
-                                    .font_11{
-                                        font-size: 11px !important;
+                                    .font_12{
+                                        font-size: 12px !important;
                                     }
                                 </style>
-                            <div class="geex-content__calendar__sidebar__meeting__single__tag">
-                                <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger font_11">
+                            <div class="geex-content__calendar__sidebar__meeting__single__tag justify-content-center">
+                                <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger font_12">
                                     Invalid credentials, please try again.
                                 </a>
                             </div>
