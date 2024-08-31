@@ -1,6 +1,6 @@
 <?php
-// Correctly include the shared database connection from the include folder
-include '../include/db_connection.php'; // Adjust the path based on your directory structure
+$ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';// Include the shared database connection
+include ($ROOT_DIR . 'include/db_connection.php'); // Adjust the path based on your directory structure
 $query = "SELECT * FROM settings WHERE id = :settings_id";
 $stmt = $conn->prepare($query);
 
