@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
         $_SESSION['student_id'] = $student['id']; // Storing student ID in session
 
         // Redirect to the student dashboard
-        header('Location: ../../student/dashboard.php'); // Adjusted path based on the current directory structure
+        header('Location: ../../student/dashboard'); // Adjusted path based on the current directory structure
         exit; // Stop further script execution
     } else {
         // Login failed
