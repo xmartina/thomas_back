@@ -1,4 +1,6 @@
-<?php include_once('../../functions/login_function.php'); ?>
+<?php
+$ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
+include_once($ROOT_DIR . 'functions/login_function.php'); ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <?php $file_dir = $ROOT_DIR . 'back_end'; ?>

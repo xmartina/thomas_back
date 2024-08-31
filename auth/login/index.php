@@ -1,4 +1,6 @@
-<?php include_once ('../partials/header.php'); ?>
+<?php
+$ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
+include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
 <body class="geex-dashboard authentication-page">
 <main class="geex-content">
     <div class="geex-content__authentication">
