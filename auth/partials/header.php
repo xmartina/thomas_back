@@ -3,7 +3,6 @@ $ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
 include_once($ROOT_DIR . 'functions/login_function.php'); ?>
 <!doctype html>
 <html lang="en" dir="ltr">
-<?php $file_dir = $ROOT_DIR . 'back_end'; ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +12,11 @@ include_once($ROOT_DIR . 'functions/login_function.php'); ?>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- inject:css-->
-    <link rel="stylesheet" href="<?= $ROOT_DIR ?>assets/vendor/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="<?= $site_link ?>assets/vendor/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="<?= $ROOT_DIR ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= $site_link ?>assets/css/style.css">
     <!-- endinject -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $ROOT_DIR ?>assets/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $site_link ?>assets/img/favicon.svg">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
 
