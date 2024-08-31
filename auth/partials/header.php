@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- inject:css-->
-    <link rel="stylesheet" href="<?= $file_dir ?>./assets/vendor/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="<?= $ROOT_DIR ?>./assets/vendor/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="<?= $file_dir ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= $ROOT_DIR ?>assets/css/style.css">
     <!-- endinject -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $file_dir ?>assets/img/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $ROOT_DIR ?>assets/img/favicon.svg">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
 
