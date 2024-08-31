@@ -9,7 +9,7 @@ session_start();
 
 // Include the shared database connection
 $ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
-include ($ROOT_DIR . 'include/db_connection.php'); // Adjust the path based on your directory structure
+include ($ROOT_DIR . 'functions/main_function.php'); // Adjust the path based on your directory structure
 
 // Check if form is submitted and 'student_login' is set
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
