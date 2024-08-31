@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
     $access_code = trim($_POST['access_code']);
 
     // SQL query to fetch the student based on Math Number and E-Library Access Code
-    $query = "SELECT * FROM students WHERE math_number = :math_number AND e_library_access_code = :access_code";
+    $query = "SELECT * FROM students WHERE math_number = :math_number AND access_code = :access_code";
     $stmt = $conn->prepare($query);
 
     // Execute the statement with the form inputs
