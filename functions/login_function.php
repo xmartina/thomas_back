@@ -47,16 +47,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
         header('Location: ../../auth/login/index.php?error=invalid_credentials'); // Adjusted path based on your directory structure
         exit; // Stop further script execution
     }
-} else {
-    // Check if the session is set to avoid redirect loops
-    if (!isset($_SESSION['student_id'])) {
-        // Redirect to login page if accessed directly without a session
-        header('Location: ../../auth/login/index.php');
-        exit; // Stop further script execution
-    } else {
-        // If the session is already set, redirect to the dashboard to avoid a loop
-        header('Location: ../../student/dashboard.php');
-        exit; // Stop further script execution
-    }
 }
+//else {
+//    // Check if the session is set to avoid redirect loops
+//    if (!isset($_SESSION['student_id'])) {
+//        // Redirect to login page if accessed directly without a session
+//        header('Location: ../../auth/login/index.php');
+//        exit; // Stop further script execution
+//    } else {
+//        // If the session is already set, redirect to the dashboard to avoid a loop
+//        header('Location: ../../student/dashboard.php');
+//        exit; // Stop further script execution
+//    }
+//}
 ?>
