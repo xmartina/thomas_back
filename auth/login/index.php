@@ -20,9 +20,6 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                             <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger">
                                 Urgent
                             </a>
-                            <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item success">
-                                Face to face
-                            </a>
                         </div>
                         <?php } ?>
                     </h2>
