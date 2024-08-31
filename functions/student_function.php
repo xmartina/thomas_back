@@ -14,4 +14,7 @@ if(!isset($_SESSION['student_id'])){ ?>
 <script>// Redirect to a specific URL
     window.location.href = '<?=$site_link ?>auth/login'; // Replace with your target URL
 </script>
-<?php } ?>
+<?php }
+$student_id = $_SESSION['student_id'];
+
+?>
