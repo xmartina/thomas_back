@@ -38,9 +38,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
         header('Location: ../auth/login/index.php?error=invalid_credentials'); // Update path based on your directory structure
         exit; // Stop further script execution
     }
-} else {
-    // Redirect to login page if accessed directly
-    header('Location: index.php');
-    exit; // Stop further script execution
 }
 ?>
