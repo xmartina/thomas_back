@@ -9,21 +9,24 @@ session_start();
 
 // Include the shared database connection
 $ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
-include ($ROOT_DIR . 'functions/main_function.php'); // Adjust the path based on your directory structure
+include($ROOT_DIR . 'functions/main_function.php'); // Adjust the path based on your directory structure
 
-if(!isset($_SESSION['student_id'])){ ?>
-<script>// Redirect to a specific URL
-    window.location.href = '<?=$site_link ?>auth/login'; // Replace with your target URL
-</script>
-<?php }
+// Check if the student is logged in
+if (!isset($_SESSION['student_id'])) { ?>
+    <script>
+        // Redirect to the login page
+        window.location.href = '<?= $site_link ?>auth/login'; // Replace with your target URL
+    </script>
+    <?php
+    exit; // Prevent further execution
+}
 
 $student_id = $_SESSION['student_id'];
 
+// Fetch student data from the database
 $query = "SELECT * FROM students WHERE id = :student_id";
 $stmt = $conn->prepare($query);
-$stmt->execute([
-    ':student_id' => $student_id
-]);
+$stmt->execute([':student_id' => $student_id]);
 $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($student) {
@@ -32,6 +35,8 @@ if ($student) {
     $stu_email = $student['email'];
     $stu_phone = $student['phone_number'];
     $stu_department = $student['department_id'];
+
+    // Convert department ID to department name
     switch ($stu_department) {
         case 1:
             $stu_department = 'Electrical/Electronics Engineering';
@@ -70,26 +75,36 @@ if ($student) {
             $stu_department = 'Unknown Department'; // Handle unexpected values
             break;
     }
-
-
-
 }
 
-switch (true) { // Using switch(true) to evaluate conditions
-    case is_null($stu_fname):
-    case is_null($stu_lname):
-    case is_null($stu_email):
-    case is_null($stu_phone):
-    case is_null($stu_department):
-        ?>
-        <script>
-            // Redirect to a specific URL
-            window.location.href = '<?=$site_link ?>student/complete_profile'; // Replace with your target URL
-        </script>
-        <?php
-        break;
-    // You can add more cases here if needed for other specific checks
+// Function to check if all fields are not null
+function isProfileComplete($fname, $lname, $email, $phone, $department) {
+    return !is_null($fname) && !is_null($lname) && !is_null($email) && !is_null($phone) && !is_null($department);
 }
 
+// Determine if the profile is complete
+$profile_complete = isProfileComplete($stu_fname, $stu_lname, $stu_email, $stu_phone, $stu_department);
+
+// Get the current URI
+$currentUri = $_SERVER['REQUEST_URI'];
+
+// Redirect logic based on profile completeness and current page
+if ($profile_complete && strpos($currentUri, 'student/dashboard') === false) {
+    // If profile is complete, redirect to the dashboard
+    ?>
+    <script>
+        window.location.href = '<?= $site_link ?>student/dashboard'; // Redirect to the dashboard
+    </script>
+    <?php
+    exit; // Prevent further execution
+} elseif (!$profile_complete && strpos($currentUri, 'student/complete_profile') === false) {
+    // If profile is incomplete, redirect to the complete profile page
+    ?>
+    <script>
+        window.location.href = '<?= $site_link ?>student/complete_profile'; // Redirect to the complete profile page
+    </script>
+    <?php
+    exit; // Prevent further execution
+}
 
 ?>
