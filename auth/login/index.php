@@ -14,7 +14,18 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                 </div>
                 <!-- Modified form for Math Number and Access Code -->
                 <form id="signInForm" class="geex-content__authentication__form" action="" method="POST">
-                    <h2 class="geex-content__authentication__title">Sign In to Your Account 👋</h2>
+                    <h2 class="geex-content__authentication__title">Sign In to Your Account 👋
+                    <?php if($_GET['invalid_credentials']){ ?>
+                        <div class="geex-content__calendar__sidebar__meeting__single__tag">
+                            <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger">
+                                Urgent
+                            </a>
+                            <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item success">
+                                Face to face
+                            </a>
+                        </div>
+                        <?php } ?>
+                    </h2>
                     <div class="geex-content__authentication__form-group">
                         <label for="mathNumber">Math Number</label>
                         <input type="text" id="mathNumber" name="math_number" placeholder="Enter Your Math Number" required>
