@@ -1,3 +1,4 @@
+<?php include_once('../../functions/login_function.php'); ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <?php $file_dir = $ROOT_DIR . 'back_end'; ?>

@@ -3,7 +3,7 @@
 session_start();
 
 // Include the shared database connection
-include '../include/db_connection.php'; // Adjust the path based on your directory structure
+include '../functions/main_function.php'; // Adjust the path based on your directory structure
 
 // Check if form is submitted and 'student_login' is set
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
