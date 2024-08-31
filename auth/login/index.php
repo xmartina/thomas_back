@@ -15,12 +15,14 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                 <!-- Modified form for Math Number and Access Code -->
                 <form id="signInForm" class="geex-content__authentication__form" action="" method="POST">
                     <h2 class="geex-content__authentication__title">Sign In to Your Account 👋
-                    <?php if($_GET['invalid_credentials']){ ?>
-                        <div class="geex-content__calendar__sidebar__meeting__single__tag">
-                            <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger">
-                                Urgent
-                            </a>
-                        </div>
+                        <?php
+                        // Check if 'invalid_credentials' is set in the $_GET array
+                        if(isset($_GET['error']) && $_GET['error'] === 'invalid_credentials') { ?>
+                            <div class="geex-content__calendar__sidebar__meeting__single__tag">
+                                <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger">
+                                    Invalid credentials, please try again.
+                                </a>
+                            </div>
                         <?php } ?>
                     </h2>
                     <div class="geex-content__authentication__form-group">
