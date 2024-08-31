@@ -84,14 +84,14 @@ switch (true) { // Using switch(true) to evaluate conditions
         ?>
         <script>
             // Redirect to a specific URL
-            window.location.href = '<?=$site_link ?>complete_profile'; // Replace with your target URL
+            window.location.href = '<?=$site_link ?>student/complete_profile'; // Replace with your target URL
         </script>
         <?php
         break;
     // You can add more cases here if needed for other specific checks
 }
 
-if (strpos($_SERVER['REQUEST_URI'], 'complete_profile') !== false) {
+if (strpos($_SERVER['REQUEST_URI'], 'student/complete_profile') !== false) {
     switch (true) { // Using switch(true) to evaluate conditions
         case !is_null($stu_fname) && !is_null($stu_lname) && !is_null($stu_email) && !is_null($stu_phone) && !is_null($stu_department):
             // All variables are not null
@@ -107,7 +107,7 @@ if (strpos($_SERVER['REQUEST_URI'], 'complete_profile') !== false) {
             ?>
             <script>
                 // Redirect to the complete profile page or another appropriate action
-                window.location.href = '<?= $site_link ?>complete_profile'; // Replace with your target URL
+                window.location.href = '<?= $site_link ?>student/complete_profile'; // Replace with your target URL
             </script>
             <?php
             break;
