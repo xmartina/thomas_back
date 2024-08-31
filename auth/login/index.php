@@ -44,7 +44,7 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                     <span class="geex-content__authentication__form-separator">Or</span>
                     <div class="geex-content__authentication__form-social">
                         <a href="#" class="geex-content__authentication__form-social__single">
-                            <img src="<?= $site_link ?>"auth/assets/img/icon/google.svg" alt="">Google
+                            <img src="<?= $site_link ?>auth/assets/img/icon/google.svg" alt="">Google
                         </a>
                         <a href="#" class="geex-content__authentication__form-social__single">
                             <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,16 +60,16 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
             </div>
         </div>
         <div class="geex-content__authentication__img">
-            <img src="<?= $site_link ?>"auth/assets/img/authentication.svg" alt="">
+            <img src="<?= $site_link ?>auth/assets/img/authentication.svg" alt="">
         </div>
     </div>
 </main>
 
 <!-- inject:js-->
-<script src="<?= $site_link ?>"auth/assets/vendor/js/jquery/jquery-3.5.1.min.js"></script>
-<script src="<?= $site_link ?>"auth/assets/vendor/js/jquery/jquery-ui.js"></script>
-<script src="<?= $site_link ?>"auth/assets/vendor/js/bootstrap/bootstrap.min.js"></script>
-<script src="<?= $site_link ?>"auth/assets/js/main.js"></script>
+<script src="<?= $site_link ?>auth/assets/vendor/js/jquery/jquery-3.5.1.min.js"></script>
+<script src="<?= $site_link ?>auth/assets/vendor/js/jquery/jquery-ui.js"></script>
+<script src="<?= $site_link ?>auth/assets/vendor/js/bootstrap/bootstrap.min.js"></script>
+<script src="<?= $site_link ?>auth/assets/js/main.js"></script>
 <!-- endinject-->
 </body>
 
