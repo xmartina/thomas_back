@@ -1,10 +1,15 @@
 <?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Start the session
 session_start();
 
-
-$ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';// Include the shared database connection
-include ($ROOT_DIR . 'functions/main_function.php'); // Adjust the path based on your directory structure
+// Include the shared database connection
+$ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
+include ($ROOT_DIR . 'include/db_connection.php'); // Adjust the path based on your directory structure
 
 // Check if form is submitted and 'student_login' is set
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
@@ -31,13 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
         $_SESSION['student_id'] = $student['id']; // Storing student ID in session
 
         // Redirect to the student dashboard
-        header('Location: ../student/dashboard.php'); // Update path based on your directory structure
+        header('Location: ../../student/dashboard.php'); // Adjusted path based on the current directory structure
         exit; // Stop further script execution
     } else {
         // Login failed
         // Redirect back to login with an error message
-        header('Location: ../auth/login/index.php?error=invalid_credentials'); // Update path based on your directory structure
+        header('Location: ../../auth/login/index.php?error=invalid_credentials'); // Adjusted path based on your directory structure
         exit; // Stop further script execution
     }
+} else {
+    // Redirect to login page if accessed directly
+    header('Location: ../../auth/login/index.php');
+    exit; // Stop further script execution
 }
 ?>
