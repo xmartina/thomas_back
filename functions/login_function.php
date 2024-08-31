@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['student_login'])) {
     }
 } else {
     // Redirect to login page if accessed directly
-    header('Location: ../auth/login/index.php');
+    header('Location: /');
     exit; // Stop further script execution
 }
 ?>
