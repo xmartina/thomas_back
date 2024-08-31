@@ -24,7 +24,7 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                                     }
                                 </style>
                             <div class="geex-content__calendar__sidebar__meeting__single__tag">
-                                <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger font_sm">
+                                <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger font_11">
                                     Invalid credentials, please try again.
                                 </a>
                             </div>
