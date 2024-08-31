@@ -23,7 +23,7 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                                         font-size: 12px !important;
                                     }
                                 </style>
-                            <div class="geex-content__calendar__sidebar__meeting__single__tag justify-content-center">
+                            <div class="geex-content__calendar__sidebar__meeting__single__tag justify-content-center py-2">
                                 <a href="#" class="geex-content__calendar__sidebar__meeting__single__tag__item danger font_12">
                                     Invalid credentials, please try again.
                                 </a>
