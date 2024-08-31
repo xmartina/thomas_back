@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1); // Display errors on the web page
+ini_set('display_startup_errors', 1); // Display startup errors
+error_reporting(E_ALL);
 $ROOT_DIR = '/home/multistream6/domains/thomas-back.matagram.com/public_html/';
 include_once($ROOT_DIR . 'functions/login_function.php'); ?>
 <!doctype html>
