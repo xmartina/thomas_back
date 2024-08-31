@@ -91,31 +91,40 @@ switch (true) { // Using switch(true) to evaluate conditions
     // You can add more cases here if needed for other specific checks
 }
 
-// Check if the current URI is related to 'student/complete_profile'
-if (strpos($_SERVER['REQUEST_URI'], 'student/complete_profile') !== false) {
+// Function to check if all fields are not null
+function isProfileComplete($fname, $lname, $email, $phone, $department) {
+    return !is_null($fname) && !is_null($lname) && !is_null($email) && !is_null($phone) && !is_null($department);
+}
 
-    // Check if the profile completion status is already set to prevent a loop
-    if (!isset($_SESSION['profile_complete'])) {
-        switch (true) { // Using switch(true) to evaluate conditions
-            case !is_null($stu_fname) && !is_null($stu_lname) && !is_null($stu_email) && !is_null($stu_phone) && !is_null($stu_department):
-                // All variables are not null, mark profile as complete
-                $_SESSION['profile_complete'] = true; // Set session flag to prevent looping
-                ?>
-                <script>
-                    // Redirect to the dashboard or perform another action
-                    window.location.href = '<?= $site_link ?>student/dashboard'; // Replace with your target URL
-                </script>
-                <?php
-                break;
-            default:
-                // Handle the case where one or more are null
-                ?>
-                <script>
-                    // Redirect to the complete profile page or another appropriate action
-                    window.location.href = '<?= $site_link ?>student/complete_profile'; // Replace with your target URL
-                </script>
-                <?php
-                break;
+// Check if the profile is complete and set session flag accordingly
+if (isProfileComplete($stu_fname, $stu_lname, $stu_email, $stu_phone, $stu_department)) {
+    $_SESSION['profile_complete'] = true;
+} else {
+    $_SESSION['profile_complete'] = false;
+}
+
+// Get the current URI
+$currentUri = $_SERVER['REQUEST_URI'];
+
+// Check if we are on the complete profile page
+if (strpos($currentUri, 'student/complete_profile') !== false) {
+    // If profile is complete, redirect to the dashboard
+    if ($_SESSION['profile_complete']) {
+        if (strpos($currentUri, 'student/dashboard') === false) { // Only redirect if not already on the dashboard
+            ?>
+            <script>
+                window.location.href = '<?= $site_link ?>student/dashboard'; // Redirect to the dashboard
+            </script>
+            <?php
+        }
+    } else {
+        // If profile is incomplete, remain on or redirect to the complete profile page
+        if (strpos($currentUri, 'student/complete_profile') === false) { // Only redirect if not already on complete profile
+            ?>
+            <script>
+                window.location.href = '<?= $site_link ?>student/complete_profile'; // Redirect to the complete profile page
+            </script>
+            <?php
         }
     }
 }
