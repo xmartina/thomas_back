@@ -71,6 +71,46 @@ if ($student) {
             break;
     }
 
+
+
 }
 
+switch (true) { // Using switch(true) to evaluate conditions
+    case is_null($stu_fname):
+    case is_null($stu_lname):
+    case is_null($stu_email):
+    case is_null($stu_phone):
+    case is_null($stu_department):
+        ?>
+        <script>
+            // Redirect to a specific URL
+            window.location.href = '<?=$site_link ?>complete_profile'; // Replace with your target URL
+        </script>
+        <?php
+        break;
+    // You can add more cases here if needed for other specific checks
+}
+
+if (strpos($_SERVER['REQUEST_URI'], 'complete_profile') !== false) {
+    switch (true) { // Using switch(true) to evaluate conditions
+        case !is_null($stu_fname) && !is_null($stu_lname) && !is_null($stu_email) && !is_null($stu_phone) && !is_null($stu_department):
+            // All variables are not null
+            ?>
+            <script>
+                // Redirect to the dashboard or perform another action
+                window.location.href = '<?= $site_link ?>student/dashboard'; // Replace with your target URL
+            </script>
+            <?php
+            break;
+        default:
+            // Handle the case where one or more are null
+            ?>
+            <script>
+                // Redirect to the complete profile page or another appropriate action
+                window.location.href = '<?= $site_link ?>complete_profile'; // Replace with your target URL
+            </script>
+            <?php
+            break;
+    }
+}
 ?>

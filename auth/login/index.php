@@ -9,7 +9,7 @@ include_once ($ROOT_DIR . 'auth/partials/header.php'); ?>
                 <div class="geex-content__authentication__content__logo">
                     <a href="/">
                         <img class="logo-lite" src="<?= $site_link ?>assets/img/logo-dark.svg" alt="logo">
-                        <img class="logo-dark" src="<?= $site_link ?>assets/img/logo-lite.svg" alt="logo">
+                        <img class="logo-dark" src="<?= $site_link ?>auth/assets/img/logo-lite.svg" alt="logo">
                     </a>
                 </div>
                 <!-- Modified form for Math Number and Access Code -->
