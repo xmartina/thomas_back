@@ -107,4 +107,49 @@ if ($profile_complete && strpos($currentUri, 'student/dashboard') === false) {
     exit; // Prevent further execution
 }
 
+
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['profile_complete'])) {
+    // Retrieve form inputs
+    $full_name = trim($_POST['full_name']);
+    $email = trim($_POST['email']);
+    $phone_number = trim($_POST['phone_number']);
+    $department_id = trim($_POST['department_id']);
+
+    // Validate inputs (add more validation as needed)
+    if (empty($full_name) || empty($email) || empty($phone_number) || empty($department_id)) {
+        echo "All fields are required.";
+        exit;
+    }
+
+    // Get the student ID from the session
+    if (!isset($_SESSION['student_id'])) {
+        echo "You must be logged in to complete your profile.";
+        exit;
+    }
+
+    $student_id = $_SESSION['student_id'];
+
+    // Update the student's profile in the database
+    try {
+        $query = "UPDATE students SET full_name = :full_name, email = :email, phone_number = :phone_number, department_id = :department_id WHERE id = :student_id";
+        $stmt = $conn->prepare($query);
+        $stmt->execute([
+            ':full_name' => $full_name,
+            ':email' => $email,
+            ':phone_number' => $phone_number,
+            ':department_id' => $department_id,
+            ':student_id' => $student_id
+        ]);
+
+        // Redirect to the dashboard after successful update
+        header("Location: {$site_link}student/dashboard.php");
+        exit;
+    } catch (PDOException $e) {
+        echo "Error updating profile: " . $e->getMessage();
+        exit;
+    }
+} else {
+    echo "Invalid request method.";
+}
 ?>
